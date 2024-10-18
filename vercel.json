@@ -8,6 +8,18 @@
       {
         "src": "public/index.html",
         "use": "@vercel/static"
+      },
+      {
+        "src": "public/assets/css/main.css",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "public/assets/images/logo.png",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "public/assets/images/bg.jpg",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
