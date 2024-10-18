@@ -1,0 +1,362 @@
+// main.scss
+
+// Import variables, mixins, and base styles
+@import 'variables';
+@import 'mixins';
+@import 'base';
+
+// Additional component styles go here
+nav.sidebar{
+    background-color: $bg-color;
+    width: 23.5%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 2%;
+    justify-content: space-between;
+    font-family: "montserrat", sans-serif;
+    box-sizing: border-box;
+    
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: $padding-base;
+        gap: .5rem;
+        box-sizing: border-box;
+       
+        .logo{
+            display: flex;
+            align-items: center;
+            img{
+                width: 100%;
+                
+            }
+            
+        }
+    }
+    .content{
+        min-height: 40%;
+        
+        box-sizing: border-box;
+        padding: $padding-base;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 2rem;
+       
+        .nav-links{
+            
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            li{
+                list-style: none;
+                a{
+                    color: $font-color;
+                    text-decoration: none;
+                    font-weight: 400;
+                    font-size: $base-font-size * 1;
+                    
+                    transition: .2s all ease-in-out;
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+                    i.bx{
+                        font-size: $base-font-size * 1.2;
+                    }
+                }
+                &:nth-child(1) a{
+                    color: $secondary-color;
+                    &:hover{
+                        color: $accent-color;
+                    }
+                }
+                &:nth-child(2) a{
+                    color: $primary-color;
+                    &:hover{
+                        color: $accent2-color;
+                    }
+                    
+                }
+                &:nth-child(3) a{
+                    color: $tertiary-color;
+                    &:hover{
+                        color: $secondary-color;
+                    }
+                }
+               
+            }
+        }
+        
+    }
+  
+
+    @media (max-width: $breakpoint-mobile) {
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+        flex-direction: row;
+        
+        .header{
+            width: 50%;
+            flex-direction: row-reverse;
+            padding: 0;
+            align-items: center;
+            
+            .logo{
+                display: flex;
+                padding: 0rem;
+                img{
+                    width: 80%;
+                }
+                
+                
+               
+            }
+        }
+        .content{
+            flex-direction: row;
+            display: none;
+            
+            z-index: 223;
+            width: 50%;
+            box-sizing: border-box;
+            padding: $padding-base $padding-base * 2.5;
+            
+            
+            justify-content: flex-start;
+            transition: all .4s ease;
+           
+           
+           
+            .nav-links{
+                padding: $padding-base * 0.5;
+                display: flex;
+                flex-direction:row;
+                gap: 1.3rem;
+                box-sizing: border-box;
+               
+                align-items: center;
+                
+                span{
+                    display: none;
+                }
+                li a{
+                    font-size: $base-font-size * 2;
+                    color: $white-accent;
+                    i.bx{
+                        font-size: $base-font-size * 1.5;
+                    }
+                }
+                    
+                
+            }
+            
+        }
+      
+    }
+}
+
+
+
+
+.main-body{
+    width: 100%;
+    height: 100vh;
+    overflow:hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    
+    .container{
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat", sans-serif;
+        overflow: hidden;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(../images/bg.jpg);
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px); /* Adjust the blur intensity here */
+            z-index: -1;
+        }
+        .overlay{
+            width: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.411);
+            height: 100%;
+        }
+        .content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            gap: 1rem;
+            box-sizing: border-box;
+            padding: 3rem;
+            h2{
+                font-size: $base-font-size * 3;
+                color: $tertiary-color;
+            }
+            p{
+                color: white;
+            }
+            .countdown{
+                font-size: $base-font-size * 3;
+                color: $secondary-color;
+            }
+            .email-signup{
+                p{
+                    color: white;
+                }
+                input{
+                    padding: .6rem;
+                    border: none;
+                    border-radius: 5px;
+                    outline: none;
+                }
+                button{
+                    padding: .6rem 1rem;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    background: $primary-color;
+                    cursor: pointer;
+                }
+            }
+
+            .social-links{
+                display: none;
+            }
+            @media (max-width: $breakpoint-mobile) {
+                padding: 1rem;
+                gap: .5rem;
+                
+                height: 100%;
+                h2{
+                    font-size: $base-font-size * 2;
+                    color: $tertiary-color;
+                    text-align: center;
+                }
+                p{
+                    color: white;
+                    font-size: $base-font-size * 0.8;
+                }
+                .countdown{
+                    font-size: $base-font-size * 2.5;
+                    color: $secondary-color;
+                }
+                .email-signup{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    input{
+                        padding: .5rem;
+                        border: none;
+                        border-radius: 5px;
+                        outline: none;
+                        font-size: $base-font-size * 0.9;
+                    }
+                    button{
+                        padding: .6rem 1rem;
+                        color: white;
+                        border: none;
+                        border-radius: 5px;
+                        font-size: $base-font-size * 0.9;
+                        background: $primary-color;
+                        
+                    }
+                }
+                .social-links{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+                  
+                    padding: .5rem;
+                    li{
+                        list-style: none;
+                        a{
+                            color: $font-color;
+                            text-decoration: none;
+                            font-weight: 400;
+                            font-size: $base-font-size * 0.9;
+                            flex-direction: column;
+                            transition: .2s all ease-in-out;
+                            display: flex;
+                            align-items: center;
+                            gap: .3rem;
+                            i.bx{
+                                font-size: $base-font-size * 1.5;
+                            }
+                            span{
+                                font-size: $base-font-size * 0.7;
+                            }
+                        }
+                        &:nth-child(1) a{
+                            color: $secondary-color;
+                            &:hover{
+                                color: $accent-color;
+                            }
+                        }
+                        &:nth-child(2) a{
+                            color: $primary-color;
+                            &:hover{
+                                color: $accent2-color;
+                            }
+                            
+                        }
+                        &:nth-child(3) a{
+                            color: $tertiary-color;
+                            &:hover{
+                                color: $secondary-color;
+                            }
+                        }
+                    
+                    }
+                        }
+                    }
+        }
+    }
+
+    
+    footer.footer{
+        width: 100%;
+        height: fit-content;
+        background-color: $bg-color;
+        padding:.5rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        bottom: 0;
+        margin-top: auto;
+        z-index: 2;
+        p{
+            font-family: "Montserrat", sans-serif;
+            font-size: $base-font-size * 0.81;
+            font-weight: 300;
+            padding: 1rem;
+            color: white;
+            @media (min-width: $breakpoint-desktop) {
+                padding: .5rem;
+            }
+        }
+        
+    }
+}
+
