@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         // Set up email data
         const mailOptions = {
             from: email,
-            to: 'mail@theartagora.com',
+            to: 'busanga@gmail.com',
             subject: 'New Email Signup',
             text: `New signup:\n${email}`,
         };
